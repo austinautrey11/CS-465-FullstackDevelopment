@@ -4,11 +4,13 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const hbs = require('hbs');
+// trigger databse connection and mongoose schema models to be loaded
 require('./app_api/models/db');
 
 var indexRouter = require('./app_server/routes/index');
 var usersRouter = require('./app_server/routes/users');
 const travelRouter = require('./app_server/routes/travel');
+// reference new API router
 const apiRouter = require('./app_api/routes/index');
 
 var app = express();
@@ -30,6 +32,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/travel', travelRouter);
+// send requests for '/api'to the api router
 app.use('/api', apiRouter);
 
 // catch 404 and forward to error handler
