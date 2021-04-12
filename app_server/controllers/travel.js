@@ -1,7 +1,7 @@
 const request = require('request');
 const apiOptions = {
     server: 'http://localhost:3000'
-}
+};
 // internal method to render the travel list
 const renderTravelList = (req, res, responseBody) => {
     let message = null;
